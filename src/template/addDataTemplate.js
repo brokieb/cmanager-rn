@@ -1,21 +1,22 @@
-import { Form, Formik, Field, Rese } from "formik";
+import {Field, Formik} from 'formik';
 import {
-  View,
+  ScrollView,
   Text,
   TextInput,
-  ScrollView,
   TouchableOpacity,
-} from "react-native";
-import { Button } from "react-native-elements";
-import Style from "../style/formFieldsStyle";
-import ParseFormData from "../libs/parseFormData";
-const AddDataTemplate = ({ formData, onSubmit }) => {
+  View,
+} from 'react-native';
+import {Button} from 'react-native-elements';
+
+import ParseFormData from '../libs/parseFormData';
+import Style from '../style/formFieldsStyle';
+const AddDataTemplate = ({formData, onSubmit}) => {
   let initValues = {};
-  formData.forEach(({ groupInputs, groupType, groupName }) => {
-    groupInputs.forEach(({ name }) => {
+  formData.forEach(({groupInputs, groupType, groupName}) => {
+    groupInputs.forEach(({name}) => {
       initValues = {
         ...initValues,
-        [groupName]: { ...initValues[groupName], [name]: "" },
+        [groupName]: {...initValues[groupName], [name]: ''},
       };
     });
   });
@@ -27,89 +28,89 @@ const AddDataTemplate = ({ formData, onSubmit }) => {
           const readyData = ParseFormData(values);
           onSubmit(readyData);
           actions.resetForm();
-          alert("DIS!");
+          alert('DIS!');
         }}
       >
         {(
-          { handleChange, handleBlur, handleSubmit, values, setFieldValue },
-          key
+            {handleChange, handleBlur, handleSubmit, values, setFieldValue},
+            key,
         ) => {
           return (
             <View key={key}>
               {formData.map(
-                ({ groupTitle, groupName, groupType, groupInputs }, key) => {
-                  return (
-                    <View key={key} style={Style.groupBox}>
-                      <Text style={Style.groupBoxTitle}>{groupTitle}</Text>
-                      {
+                  ({groupTitle, groupName, groupType, groupInputs}, key) => {
+                    return (
+                      <View key={key} style={Style.groupBox}>
+                        <Text style={Style.groupBoxTitle}>{groupTitle}</Text>
                         {
-                          text: groupInputs.map(
-                            ({ title, name, type, required }, key) => {
-                              return (
-                                <View key={key} style={Style.inputTextBox}>
-                                  <Text style={Style.inputTextTitle}>
-                                    {title}
-                                  </Text>
-                                  <TextInput
-                                    onChangeText={handleChange(
-                                      `${groupName}.${name}`
-                                    )}
-                                    onBlur={handleBlur(`${groupName}.${name}`)}
-                                    value={values[groupName][name]}
-                                    style={Style.inputTextField}
-                                  />
-                                </View>
-                              );
-                            }
-                          ),
-                          checkbox: (
-                            <View style={Style.inputCheckboxBox}>
-                              {groupInputs.map(
-                                ({ title, name, type, required }, key) => {
+                          {
+                            text: groupInputs.map(
+                                ({title, name, type, required}, key) => {
                                   return (
-                                    <Field name={name} key={key}>
-                                      {({
-                                        checkbox,
-                                        field, // { name, value, onChange, onBlur }
-                                        form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
-                                        meta,
-                                      }) => (
-                                        <TouchableOpacity
-                                          style={[
-                                            Style.inputCheckboxField,
-                                            values[groupName][name] === "1" &&
-                                              Style.inputCheckboxFieldChecked,
-                                          ]}
-                                          onPress={() => {
-                                            console.log(
-                                              groupName,
-                                              "!!!!!",
-                                              name,
-                                              "@@"
-                                            );
-                                            setFieldValue(
-                                              `${groupName}.${name}`,
-                                              values[groupName][name] === ""
-                                                ? "1"
-                                                : ""
-                                            );
-                                          }}
-                                        >
-                                          <Text>{title}</Text>
-                                        </TouchableOpacity>
-                                      )}
-                                    </Field>
+                                    <View key={key} style={Style.inputTextBox}>
+                                      <Text style={Style.inputTextTitle}>
+                                        {title}
+                                      </Text>
+                                      <TextInput
+                                        onChangeText={handleChange(
+                                            `${groupName}.${name}`,
+                                        )}
+                                        onBlur={handleBlur(`${groupName}.${name}`)}
+                                        value={values[groupName][name]}
+                                        style={Style.inputTextField}
+                                      />
+                                    </View>
                                   );
-                                }
-                              )}
-                            </View>
-                          ),
-                          radio: <Text>Radio</Text>,
-                        }[groupType]
-                      }
-                    </View>
-                  );
-                }
+                                },
+                            ),
+                            checkbox: (
+                              <View style={Style.inputCheckboxBox}>
+                                {groupInputs.map(
+                                    ({title, name, type, required}, key) => {
+                                      return (
+                                        <Field name={name} key={key}>
+                                          {({
+                                            checkbox,
+                                            field, // { name, value, onChange, onBlur }
+                                            form: {touched, errors}, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+                                            meta,
+                                          }) => (
+                                            <TouchableOpacity
+                                              style={[
+                                                Style.inputCheckboxField,
+                                                values[groupName][name] === '1' &&
+                                              Style.inputCheckboxFieldChecked,
+                                              ]}
+                                              onPress={() => {
+                                                console.log(
+                                                    groupName,
+                                                    '!!!!!',
+                                                    name,
+                                                    '@@',
+                                                );
+                                                setFieldValue(
+                                                    `${groupName}.${name}`,
+                                              values[groupName][name] === '' ?
+                                                '1' :
+                                                '',
+                                                );
+                                              }}
+                                            >
+                                              <Text>{title}</Text>
+                                            </TouchableOpacity>
+                                          )}
+                                        </Field>
+                                      );
+                                    },
+                                )}
+                              </View>
+                            ),
+                            radio: <Text>Radio</Text>,
+                          }[groupType]
+                        }
+                      </View>
+                    );
+                  },
               )}
               <View style={Style.submitButtonBox}>
                 <Button

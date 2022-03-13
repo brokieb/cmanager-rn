@@ -1,19 +1,14 @@
+import {useEffect, useState} from 'react';
 import {
-  View,
-  Text,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
   RefreshControl,
-} from "react-native";
-import { Button } from "react-native-elements";
-import { useEffect, useLayoutEffect, useState, createContext } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setClient } from "../../stores/clientReducer";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import ShowSimpleDataTemplate from "../../template/showSimpleDataTemplate";
+  ScrollView,
+  Text,
+} from 'react-native';
+import {useSelector} from 'react-redux';
 
-const ShowClientsScreen = ({ navigation }) => {
+import ShowSimpleDataTemplate from '../../template/showSimpleDataTemplate';
+
+const ShowClientsScreen = ({navigation}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -24,7 +19,7 @@ const ShowClientsScreen = ({ navigation }) => {
       setLoading(false);
     } catch (e) {
       // read error
-      console.log(e, "!!!");
+      console.log(e, '!!!');
     }
   }, []);
   useEffect;

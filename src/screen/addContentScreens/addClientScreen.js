@@ -1,8 +1,8 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useDispatch } from "react-redux";
-import AddDataTemplate from "../../template/addDataTemplate";
-import clientFormData from "../../database/client";
-import { addClient } from "../../stores/clientReducer";
+import {useDispatch} from 'react-redux';
+
+import clientFormData from '../../database/client';
+import {addClient} from '../../stores/clientReducer';
+import AddDataTemplate from '../../template/addDataTemplate';
 const AddClientScreen = () => {
   const dispatch = useDispatch();
   return (

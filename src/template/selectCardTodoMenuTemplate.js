@@ -1,18 +1,18 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import { Button } from "react-native-elements";
-import { Style } from "../style/selectCardTodoTemplateStyle";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faWifi } from "@fortawesome/free-solid-svg-icons";
+import {faWifi} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {Button} from 'react-native-elements';
+
+import {Style} from '../style/selectCardTodoTemplateStyle';
 
 const Stack = createNativeStackNavigator();
 
-export const MainScreen = ({ navigation, route, elements, title }) => {
+export const MainScreen = ({navigation, route, elements, title}) => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <View style={Style.container}>
-        {elements.map(({ title, icon }, key) => (
+        {elements.map(({title, icon}, key) => (
           <TouchableOpacity
             key={key}
             style={Style.singleBox}
@@ -29,7 +29,7 @@ export const MainScreen = ({ navigation, route, elements, title }) => {
   );
 };
 
-const SelectCardTodoTemplate = ({ screenTitle, screenName, elements }) => {
+const SelectCardTodoTemplate = ({screenTitle, screenName, elements}) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -37,7 +37,7 @@ const SelectCardTodoTemplate = ({ screenTitle, screenName, elements }) => {
         options={{
           headerRight: () => (
             <Button
-              onPress={() => alert("This is a button!")}
+              onPress={() => alert('This is a button!')}
               icon={<FontAwesomeIcon icon={faWifi} color="red" />}
               disabled
               type="clear"
@@ -50,7 +50,7 @@ const SelectCardTodoTemplate = ({ screenTitle, screenName, elements }) => {
           <MainScreen {...props} title={screenTitle} elements={elements} />
         )}
       </Stack.Screen>
-      {elements.map(({ title, screen }, key) => (
+      {elements.map(({title, screen}, key) => (
         <Stack.Screen name={title} component={screen} key={key} />
       ))}
     </Stack.Navigator>

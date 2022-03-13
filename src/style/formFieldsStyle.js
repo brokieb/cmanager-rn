@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const Style = StyleSheet.create({
   groupBox: {
@@ -25,10 +25,10 @@ const Style = StyleSheet.create({
     paddingHorizontal: 15,
   },
   inputCheckboxBox: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
   },
   inputCheckboxField: {
     borderWidth: 1,
@@ -36,23 +36,23 @@ const Style = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     margin: 15,
-    display: "flex",
-    justifyContent: "center",
+    display: 'flex',
+    justifyContent: 'center',
   },
   inputCheckboxFieldChecked: {
-    backgroundColor: "red",
+    backgroundColor: 'red',
   },
   submitButtonBox: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 20,
     marginBottom: 30,
   },
   submitButton: {
     width: 200,
     paddingVertical: 20,
-    display: "flex",
-    justifyContent: "center",
+    display: 'flex',
+    justifyContent: 'center',
   },
   submitButtonTitle: {
     fontSize: 24,

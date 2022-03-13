@@ -1,27 +1,27 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const Style = StyleSheet.create({
   CardBox: {
-    backgroundColor: "white",
-    position: "relative",
+    backgroundColor: 'white',
+    position: 'relative',
     borderRadius: 10,
     margin: 20,
-    overflow: "hidden",
+    overflow: 'hidden',
     zIndex: 1,
   },
   CardBoxWrapper: {
     padding: 20,
   },
   RemoveTitle: {
-    backgroundColor: "white",
-    position: "absolute",
+    backgroundColor: 'white',
+    position: 'absolute',
     opacity: 0.88,
     zIndex: 2,
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   CardTitle: {
     fontSize: 32,
@@ -30,9 +30,9 @@ const Style = StyleSheet.create({
     marginTop: 20,
   },
   SingleDetailsLine: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     marginVertical: 5,
   },
   ContactDetailsIcon: {
@@ -46,9 +46,9 @@ const Style = StyleSheet.create({
     marginVertical: 10,
   },
   DetailsContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexDirection: "row",
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     marginVertical: 5,
   },
   DetailsTitle: {
@@ -58,10 +58,10 @@ const Style = StyleSheet.create({
     fontSize: 16,
   },
   VerticalLine: {
-    width: "80%",
+    width: '80%',
     marginTop: 15,
     height: 1,
-    backgroundColor: "#909090",
+    backgroundColor: '#909090',
   },
 });
 

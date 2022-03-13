@@ -1,4 +1,4 @@
-import AddDataTemplate from "../../template/addDataTemplate";
+import AddDataTemplate from '../../template/addDataTemplate';
 
 const AddBuildScreen = () => {
   return <AddDataTemplate />;

@@ -1,16 +1,15 @@
-import { faAt, faPhone, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {faAt, faPhone, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
-  View,
   Text,
-  TextInput,
-  ScrollView,
   TouchableOpacity,
-} from "react-native";
-import { useDispatch } from "react-redux";
-import { removeClient } from "../stores/clientReducer";
-import Style from "../style/singleContentCardStyle";
-const SingleContentCard = ({ cardData, editMode, localId }) => {
+  View,
+} from 'react-native';
+import {useDispatch} from 'react-redux';
+
+import {removeClient} from '../stores/clientReducer';
+import Style from '../style/singleContentCardStyle';
+const SingleContentCard = ({cardData, editMode, localId}) => {
   const dispatch = useDispatch();
   const removeElement = () => {
     dispatch(removeClient(localId));
@@ -22,7 +21,7 @@ const SingleContentCard = ({ cardData, editMode, localId }) => {
         if (editMode) {
           removeElement();
         } else {
-          console.log("DZIAŁAMY W INNYM TRYBIE");
+          console.log('DZIAŁAMY W INNYM TRYBIE');
         }
       }}
     >

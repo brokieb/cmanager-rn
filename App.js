@@ -1,21 +1,18 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
-  faCoffee,
-  faUserPlus,
   faHouseMedical,
-  faCalendarPlus,
-  faGear,
-} from "@fortawesome/free-solid-svg-icons";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import ShowScreen from "./src/screen/menuScreens/showContentMenuScreen";
-import AddScreen from "./src/screen/menuScreens/addContentMenuScreen";
-import store from "./src/stores/store";
-import { Provider } from "react-redux";
+  faUserPlus,
+} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {Provider} from 'react-redux';
+
+import AddScreen from './src/screen/menuScreens/addContentMenuScreen';
+import ShowScreen from './src/screen/menuScreens/showContentMenuScreen';
+import store from './src/stores/store';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function App() {
@@ -23,23 +20,23 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Tab.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
+          screenOptions={({route}) => ({
+            tabBarIcon: ({focused, color, size}) => {
               let iconName;
 
               switch (route.name) {
-                case "Przeglądaj":
+                case 'Przeglądaj':
                   iconName = faUserPlus;
                   break;
-                case "Dodaj":
+                case 'Dodaj':
                   iconName = faHouseMedical;
                   break;
               }
 
               return <FontAwesomeIcon icon={iconName} size={24} />;
             },
-            tabBarActiveTintColor: "tomato",
-            tabBarInactiveTintColor: "gray",
+            tabBarActiveTintColor: 'tomato',
+            tabBarInactiveTintColor: 'gray',
             headerShown: false,
           })}
         >
@@ -58,8 +55,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
